@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
-import { AppBar, Toolbar, Grid, GridList, withStyles, Typography } from '@material-ui/core';
+import { Grid, withStyles, Typography, Link, Button } from '@material-ui/core';
+import zIndex from '@material-ui/core/styles/zIndex';
 
 const styles = {
-    root: {
-        display: "flex",
-        flexGrow: 1,
-        height: "75px",
-    },
-    navItem: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center"
-    }
+  root: {
+    display: "flex",
+    flex: 1,
+    height: "75px"
+  },navItem: {
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center"
+  },
+  typographyStyle: {
+    color: "#fff",
+    fontWeight: 300,
+    zIndex: 1
+  }
 }
 
 class Header extends Component {
@@ -19,36 +24,34 @@ class Header extends Component {
     const {classes } = this.props;
     return (
       <header className={classes.root}>
-        <Grid container>
-          <Grid container item xs={2} />
-          <Grid container item xs={8}>
+          <Grid justify="space-around" container spacing={0}>
             <Grid item xs className={classes.navItem}>
-              <Typography variant="h6">
+              <Typography variant="h6" className={classes.typographyStyle}>
                 About Me
               </Typography>
             </Grid>
             <Grid item xs className={classes.navItem}>
-              <Typography variant="h6">
+              <Typography variant="h6" className={classes.typographyStyle}>
                 Resume
               </Typography>
             </Grid>
             <Grid item xs className={classes.navItem}>
-              <Typography variant="h6">
+              <Typography variant="h6" className={classes.typographyStyle}>
                 Portfolio
               </Typography>
             </Grid>
             <Grid item xs className={classes.navItem}>
-              <Typography variant="h6">
+              <Typography variant="h6" className={classes.typographyStyle}>
                 Music
               </Typography>
             </Grid>
             <Grid item xs className={classes.navItem}>
-              <Typography variant="h6">
+              <Typography variant="h6" className={classes.typographyStyle}>
                 Contact
               </Typography>
             </Grid>
           </Grid>
-        </Grid>
+       
       </header>
     )
   }

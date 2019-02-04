@@ -1,0 +1,9 @@
+.layout-bg {
+    display: "flex";
+    flex-grow: 1;
+    background-image: url(/img/yosemite.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
