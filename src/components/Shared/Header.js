@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
-import { Grid, withStyles, Typography, Link, Button } from '@material-ui/core';
-import zIndex from '@material-ui/core/styles/zIndex';
+import React, { Component, ReactDOM } from "react";
+import { Grid, withStyles, Typography, Link, Button } from "@material-ui/core";
+import zIndex from "@material-ui/core/styles/zIndex";
 
 const styles = {
   root: {
     display: "flex",
     flex: 1,
     height: "75px"
-  },navItem: {
+  },
+  navItem: {
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center"
@@ -17,43 +18,54 @@ const styles = {
     fontWeight: 300,
     zIndex: 1
   }
-}
+};
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    console.log(this.props);
+  }
+
+  // Want to be able to scroll to top of each component onClick
+  // react-scrolls might be an option
+
+  // Grab ref attached to each component and then use a function
+  // to get the ref and scroll to the top the component
   render() {
-    const {classes } = this.props;
     return (
-      <header className={classes.root}>
-          <Grid justify="space-around" container spacing={0}>
-            <Grid item xs className={classes.navItem}>
-              <Typography variant="h6" className={classes.typographyStyle}>
-                About Me
-              </Typography>
-            </Grid>
-            <Grid item xs className={classes.navItem}>
-              <Typography variant="h6" className={classes.typographyStyle}>
-                Resume
-              </Typography>
-            </Grid>
-            <Grid item xs className={classes.navItem}>
-              <Typography variant="h6" className={classes.typographyStyle}>
-                Portfolio
-              </Typography>
-            </Grid>
-            <Grid item xs className={classes.navItem}>
-              <Typography variant="h6" className={classes.typographyStyle}>
-                Music
-              </Typography>
-            </Grid>
-            <Grid item xs className={classes.navItem}>
-              <Typography variant="h6" className={classes.typographyStyle}>
-                Contact
-              </Typography>
-            </Grid>
+      <header style={styles.root}>
+        <Grid justify="space-around" container spacing={0}>
+          <Grid item xs style={styles.navItem}>
+            <Button
+              ref={this.componentNodeRef}
+              onClick={this.props.handleScroll}
+            >
+              <Typography style={styles.typographyStyle}>About Me</Typography>
+            </Button>
           </Grid>
-       
+          <Grid item xs style={styles.navItem}>
+            <Typography variant="h6" style={styles.typographyStyle}>
+              Resume
+            </Typography>
+          </Grid>
+          <Grid item xs style={styles.navItem}>
+            <Typography variant="h6" style={styles.typographyStyle}>
+              Portfolio
+            </Typography>
+          </Grid>
+          <Grid item xs style={styles.navItem}>
+            <Typography variant="h6" style={styles.typographyStyle}>
+              Music
+            </Typography>
+          </Grid>
+          <Grid item xs style={styles.navItem}>
+            <Typography variant="h6" style={styles.typographyStyle}>
+              Contact
+            </Typography>
+          </Grid>
+        </Grid>
       </header>
-    )
+    );
   }
 }
 

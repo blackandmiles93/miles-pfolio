@@ -34,13 +34,14 @@ const styles = {
 class Landing extends Component {
   render() {
     const { classes } = this.props;
+    console.log(this.props);
     return (
       <>
         <div className={classes.divOverlay} />
         <div className={classes.root}>
           <Grid container spacing={0} justify="center">
             <Grid item xs={12}>
-              <Header />
+              <Header handleScroll={this.props.handleScroll} />
             </Grid>
             <Grid item xs={12} className={classes.gridStyles}>
               <Typography variant="h1" className={classes.typographyStyle}>
