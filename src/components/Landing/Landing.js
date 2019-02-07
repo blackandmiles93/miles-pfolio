@@ -32,9 +32,13 @@ const styles = {
 };
 
 class Landing extends Component {
+  constructor(props) {
+    super(props);
+    React.forwardRef((props, ref) => ref);
+  }
   render() {
     const { classes } = this.props;
-    console.log(this.props);
+
     return (
       <>
         <div className={classes.divOverlay} />

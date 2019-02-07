@@ -4,6 +4,7 @@ import Footer from "./Shared/Footer";
 import Landing from "./Landing/Landing";
 import "../assets/css/layout.css";
 import About from "./About/About";
+import resume from "../assets/documents/my-resume.pdf";
 
 // const styles = {
 //   root: {
@@ -23,12 +24,22 @@ class Layout extends Component {
       //   about: this.refs.about
       // }
     };
-    this.componentNodeRef = React.createRef();
+    this.compRef = React.createRef();
   }
 
-  handleScrollToComponent = event => {
-    console.log(this.refs);
-    this.refs.about.scrollIntoView();
+  // download resume function that is passed to the About.js component
+  downloadResume = event => {
+    let anchor = document.createElement("a");
+    anchor.href = resume;
+    anchor.setAttribute("download", "Miles-Resume");
+    anchor.click();
+    anchor.remove();
+    console.log(anchor);
+  };
+
+  getRef = el => {
+    this.compRef = el;
+    console.log(el);
   };
 
   render() {
@@ -36,10 +47,14 @@ class Layout extends Component {
     return (
       <div>
         <div>
-          <Landing handleScroll={this.handleScrollToComponent} ref="landing" />
+          <Landing handleScroll={this.handleScrollToComponent} />
         </div>
         <div>
-          <About ref="about" />
+          <About
+            file={this.resume}
+            downloadResume={this.downloadResume}
+            ref={this.getRef}
+          />
         </div>
         <div>
           <Footer />

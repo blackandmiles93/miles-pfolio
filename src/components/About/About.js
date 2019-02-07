@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Button, Typography, withStyles } from "@material-ui/core";
 import closeup from "../../assets/img/closeup_resized.jpg";
+import resume from "../../assets/documents/my-resume.pdf";
 
 const styles = {
   root: {
@@ -70,6 +71,7 @@ function About(props) {
           </Grid>
           <Grid item xs={3}>
             <Button
+              onClick={props.downloadResume}
               style={{ backgroundColor: "#6f6f6f", color: "#fff" }}
               variant="text"
             >

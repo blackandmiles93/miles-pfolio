@@ -23,9 +23,11 @@ const styles = {
 class Header extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
   }
 
+  componentDidMount() {
+    // console.log(this.props);
+  }
   // Want to be able to scroll to top of each component onClick
   // react-scrolls might be an option
 
@@ -36,10 +38,7 @@ class Header extends Component {
       <header style={styles.root}>
         <Grid justify="space-around" container spacing={0}>
           <Grid item xs style={styles.navItem}>
-            <Button
-              ref={this.componentNodeRef}
-              onClick={this.props.handleScroll}
-            >
+            <Button onClick={this.props.handleScroll}>
               <Typography style={styles.typographyStyle}>About Me</Typography>
             </Button>
           </Grid>
