@@ -4,7 +4,9 @@ import Footer from "./Shared/Footer";
 import Landing from "./Landing/Landing";
 import "../assets/css/layout.css";
 import About from "./About/About";
-import resume from "../assets/documents/my-resume.pdf";
+import Resume from "../components/Resume/Resume";
+import resumeFile from "../assets/documents/my-resume.pdf";
+import { CssBaseline } from "@material-ui/core";
 
 // const styles = {
 //   root: {
@@ -19,18 +21,15 @@ import resume from "../assets/documents/my-resume.pdf";
 class Layout extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      // componentList: {
-      //   about: this.refs.about
-      // }
-    };
+    this.refs = {};
     this.compRef = React.createRef();
+    console.log(this.compRef);
   }
 
   // download resume function that is passed to the About.js component
   downloadResume = event => {
     let anchor = document.createElement("a");
-    anchor.href = resume;
+    anchor.href = resumeFile;
     anchor.setAttribute("download", "Miles-Resume");
     anchor.click();
     anchor.remove();
@@ -42,10 +41,15 @@ class Layout extends Component {
     console.log(el);
   };
 
+  handleScrollToComponent(name) {
+    this.props.compRef.current.scrollIntoView();
+  }
+
   render() {
     const { classes } = this.props;
     return (
       <div>
+        <CssBaseline />
         <div>
           <Landing handleScroll={this.handleScrollToComponent} />
         </div>
@@ -55,6 +59,9 @@ class Layout extends Component {
             downloadResume={this.downloadResume}
             ref={this.getRef}
           />
+        </div>
+        <div>
+          <Resume />
         </div>
         <div>
           <Footer />

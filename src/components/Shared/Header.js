@@ -38,7 +38,11 @@ class Header extends Component {
       <header style={styles.root}>
         <Grid justify="space-around" container spacing={0}>
           <Grid item xs style={styles.navItem}>
-            <Button onClick={this.props.handleScroll}>
+            <Button
+              onClick={() => {
+                this.props.handleScroll(this.props.compRef);
+              }}
+            >
               <Typography style={styles.typographyStyle}>About Me</Typography>
             </Button>
           </Grid>

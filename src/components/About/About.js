@@ -27,6 +27,8 @@ const styles = {
   }
 };
 
+//TODO: need to fix image on render, it blips like it's width is narrow to start
+
 function About(props) {
   return (
     <div style={styles.root}>
